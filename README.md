@@ -1,3 +1,3 @@
 # AI1103-Probablity
 
-Course Work relted to AI1103 Probability
+Course Work related to AI1103 Probability
