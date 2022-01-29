@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.16}
+
+\title{\textbf{Assignment 2}}
+\author{Abhishek Ajit Sabnis}
+\date{24 January 2022}
+
+\begin{document}
+
+\maketitle
+
+\textbf{50) Let X and Y be i.i.d random variables uniformly distributed on (0,4). Then $P(X>Y|X<2Y)$ is}
+
+\vspace{0.5cm}
+
+\textbf{Ans} According to \underline{Bayes Theorem}, for any 2 random variable A and B, 
+
+\begin{equation}
+    P(A|B) = \frac{P(A,B)}{P(B)}
+\end{equation}
+
+Thus, 
+
+\begin{equation}
+    P(X>Y|X<2Y) = \frac{P ((X>Y), (X<2Y)) }{P(X<2Y)}
+\end{equation}
+
+\vspace{0.2cm}
+
+\underline{Probability Density Function}
+
+\vspace{0.1cm}
+
+For a random variable X, the pdf of Uniform distribution (0,4) is given by
+
+\begin{equation}
+  f_X(x) =
+    \begin{cases}
+      1/4 & \text{for 0 $\leq$ x $\leq$ 4 }\\
+      0 & \text{for x$<$0 or x$>$4}
+    \end{cases}       
+\end{equation}
+
+\underline{Cumulative Density Function}
+
+\vspace{0.1cm}
+
+For a random variable X, the cdf of Uniform distribution (0,4) is given by
+
+\begin{equation}
+  F_X(x) =
+    \begin{cases}
+      0 & \text{for x$<$0}\\
+      x/4 & \text{for 0 $\leq$ x $\leq$ 4 }\\
+      1 & \text{for x$>$4}
+    \end{cases}       
+\end{equation}
+
+Replacing the variable x with y and 2y:
+
+
+\begin{equation}
+  F_X(y) =P(X \leq y)=
+    \begin{cases}
+      0 & \text{for y$<$0}\\
+      y/4 & \text{for 0 $\leq$ y $\leq$ 4 }\\
+      1 & \text{for y$>$4}
+    \end{cases}       
+\end{equation}
+
+
+\begin{equation}
+  F_X(2y) =P(X \leq 2y)=
+    \begin{cases}
+      0 & \text{for y$<$0}\\
+      y/2 & \text{for 0 $\leq$ y $\leq$ 2 }\\
+      1 & \text{for y$>$2}
+    \end{cases}       
+\end{equation}
+%---------------------------------------------------------------
+
+Since y is a variable belonging to random variable Y, we take expectation of the cdf with respect to Y as follows:
+
+\begin{equation} 
+\begin{split}
+P(X < Y) & = E_Y[F_X(y)] \\
+ & = \int F_X(y) f_Y(y) dy \\
+ & = \int_{0}^{4} \frac{y}{4} \times \frac{1}{4} dy \\
+ & = \frac{1}{2} 
+\end{split}
+\end{equation}
+
+\begin{equation} 
+\begin{split}
+P(X < 2Y) & = E_Y[F_X(2y)] \\
+ & = \int F_X(2y) f_Y(y) dy \\
+ & = \int_{0}^{2} \frac{y}{2} \times \frac{1}{4} dy + \int_{2}^{4} \frac{1}{4} dy \\
+ & = \frac{1}{4} + \frac{1}{2} = \frac{3}{4}
+\end{split}
+\end{equation}
+
+The numerator of equation 2 is:
+
+\begin{equation} 
+\begin{split}
+P ((X>Y), (X<2Y)) & = P(Y<X<2Y) \\
+ & = E_Y[F_X(2y)] - E_Y[F_X(y)] \\
+ & = P(X<2Y) - P(X<Y) \\
+ & = \frac{3}{4} - \frac{1}{2} \\
+ & = \frac{1}{4}
+\end{split}
+\end{equation}
+
+
+\begin{equation} 
+\begin{split}
+\Rightarrow P (X>Y|X<2Y) & = \frac{P ((X>Y), (X<2Y))}{P(X<2Y)} \\
+ & = \frac{1/4}{3/4} \\
+ & = \frac{1}{3}
+\end{split}
+\end{equation}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{hi.png}
+    \caption{Final Probability vs number of simulations}
+\end{figure}
+
+\end{document}
