@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{\textbf{Assignment 3 - Q54 (dec 2018)}}
+\author{Abhishek Ajit Sabnis}
+\date{13 February 2022}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Q54 (dec2018)} To test the hypothesis $H_0$ against $H_1$ using the test statistic T, the proposed test procedure is not to support $H_0$ if T is large. Based on a given sample, the p value of the test statistic is computed to be 0.05 assuming that the distribution of T is N(0,1) under $H_0$. If the distribution of T under $H_0$ is the t-distribution with 10 degrees of freedom instead, the p-value will be 
+
+\vspace{0.5cm}
+
+\textbf{Ans} Let 'n' observations of a sample come from Normal distribution $N(\mu, \sigma^2)$. Then their sampling distribution is 
+
+\begin{equation}
+    \Bar{X} = \frac{1}{n} (\Sigma_{1}^{n} X_i)
+\end{equation}
+
+The sample mean and variance will be 
+
+\begin{equation}
+    \mu_{\Bar{X}} = \frac{1}{n} (\Sigma E(X)) = \mu
+\end{equation}
+
+\begin{equation}
+    \sigma_{\Bar{X}}^2 = \frac{1}{n^2} (\Sigma Var(X)) = \frac{\sigma^2}{n}
+\end{equation}
+
+\vspace{0.3cm}
+
+
+Given initially, Z test is performed with p-value 0.05 Thus,
+\begin{equation}
+    P(Z>z_{\alpha}) = 0.05
+\end{equation}
+
+where, 
+\begin{equation}
+    z_{\alpha} = \frac{\Bar{X} - \mu}{\sigma/\sqrt{n}}
+\end{equation}
+
+We need to find the value of - $P(T> t_{\alpha})$
+
+where,
+
+\begin{equation}
+    t_{\alpha} = \frac{\Bar{X} - \mu}{s/\sqrt{n}}
+\end{equation}
+s is the standard deviation of given observations. 
+
+\vspace{0.3cm}
+
+A few properties listed below - 
+
+\begin{equation}
+    T = Z \frac{\sqrt{\nu}}{\sqrt{V}}
+\end{equation}
+
+\begin{equation}
+    \frac{s}{\sigma} = \frac{\sqrt{V}}{\sqrt{\nu}}
+\end{equation}
+
+where $\nu (degree of freedom)= n-1 $ and V is chi-squared distribution with $\nu$ degrees of freedom.
+
+\vspace{0.3cm}
+
+Substitute eq 7 and 8 in $P(T> t_{\alpha})$
+
+\begin{equation} 
+\begin{split}
+P(T> t_{\alpha}) & = P(\frac{Z \sqrt{\nu}}{\sqrt{V}} > t_{\alpha}) \\
+ & = P(\frac{Z \sqrt{\nu}}{\sqrt{V}} > \frac{z_{\alpha} \sigma}{s}) \\
+ & =  P(\frac{Z \sqrt{\nu}}{\sqrt{V}} > \frac{z_{\alpha} \sqrt{\nu}}{\sqrt{V}})\\
+ & = P(Z > z_{\alpha}) = 0.05
+\end{split}
+\end{equation}
+    
+
+
+\end{document}
