@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.16}
+
+\title{\textbf{Assignment 6 Q56 (june 2018)}}
+\author{Abhishek Ajit Sabnis}
+\date{10 March 2022}
+
+\begin{document}
+
+\maketitle
+
+\textbf{56) To test the equality of effects of 10 schools against all alternatives, we take a random sample of 5 students from each school and note their marks in a common examination. "Between sum of squares" and "total sum of squares" are found to be 180 and 500 respectively. What is the p-value for the standard F-test?}
+
+\vspace{0.5cm}
+
+\textbf{Ans} 
+
+Let X be n$\times$m matrix where n is number of students from each school and m is total   number of schools. 
+
+Let $\overline{X}$ be m $\times$ 1 column vector of mean marks of students of a particular school.
+
+Let $\overline{\overline{X}}$ be mean marks of all students.
+
+\begin{equation}
+    \Rightarrow \overline{X} = (X^T_{m\times n} 1_{n\times 1})/n
+\end{equation}
+
+\begin{equation}
+\begin{split}
+    \Rightarrow \overline{\overline{X}} & = (1^T_{1\times m} \overline{X}_{m\times 1})/m \\
+      & = (1^T_{1\times m} X^T_{m\times n} 1_{n\times 1})/mn
+\end{split}
+\end{equation}
+
+\vspace{0.3cm}
+
+The \textbf{Total sum of squares (SST)} is defined as - 
+\begin{equation}
+\begin{split}
+    SST & = Tr(X^TX) + mn (\overline{\overline{X}})^2 - 2 \overline{\overline{X}} [1^T_{1\times n} X_{n\times m} 1_{m\times 1}] \\
+        \\
+        & = Tr(X^T X) - \frac{(1^T X^T 1)(1^T X^T 1)}{mn}
+\end{split}
+\end{equation}
+
+The \textbf{Within sum of squares (SSW)} is defined as - 
+\begin{equation}
+\begin{split}
+    SSW &= Tr(X^TX) + n \overline{X}^T \overline{X} - 2 [1^T_{1\times n} X_{n\times m} \overline{X}_{m\times 1}] \\
+      \\
+       &= Tr(X^TX) - \frac{1^T X X^T 1}{n}
+\end{split}
+\end{equation}
+
+The \textbf{Between sum of squares (SSB)} is defined as - 
+\begin{equation}
+\begin{split}
+    SSB &= n[\overline{X}^T \overline{X} + m (\overline{\overline{X}})^2 -2 \overline{\overline{X}} (1^T_{1\times m} \overline{X}_{m\times 1} )] \\
+       \\
+        &= \frac{1^T X X^T 1}{n} - \frac{(1^T X^T 1)(1^T X^T 1)}{mn}
+\end{split}
+\end{equation}
+
+\vspace{0.3 cm}
+
+Add equations 4 and 5-
+
+\begin{equation}
+    \Rightarrow SSB + SSW = SST
+\end{equation}
+
+Now, Let the null Hypothesis be $H_O$ = All the schools are same (true mean of marks are same). We conduct F-test to verify this. 
+
+\begin{equation}
+\begin{split}
+    F & = \frac{Var_B}{Var_W} \\
+      & = \frac{SSB/dof_b}{SSW/dof_w} \\
+      & = \frac{SSB/(m-1) }{SSW/(m (n-1))}
+\end{split}
+\end{equation}
+
+Given SSB = 180 and SST = 500. From equation (6), SSB = 320. From question, m=10 and n=5
+
+\begin{equation}
+    \Rightarrow F = 2.5
+\end{equation}
+
+Therefore, p-value is - 
+
+\begin{equation}
+    P[F_{9,40} \geq 2.5]
+\end{equation}
+
+\end{document}
