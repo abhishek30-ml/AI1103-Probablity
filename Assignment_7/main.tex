@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\pgfplotsset{compat=1.16}
+
+\title{\textbf{Assignment 7 Q105 (dec 2017)}}
+\author{Abhishek Ajit Sabnis}
+\date{1 April 2022}
+
+\begin{document}
+
+\maketitle
+
+\textbf{53) Consider a markov chain with 5 states {1,2,3,4,5} and transition matrix P = }
+\begin{equation}
+\begin{pmatrix}
+1/2 & 0 & 0 & 1/2 & 0\\
+0 & 1/7 & 0 & 0 & 6/7\\
+1/5 & 1/5 & 1/5 & 1/5 & 1/5\\
+1/3 & 0 & 0 & 2/3 & 0\\
+0 & 5/8 & 0 & 0 & 3/8\\
+\end{pmatrix}
+\end{equation}
+
+\vspace{0.3cm}
+
+\textbf{Which of the following is true? }
+
+\textbf{1. 3 and 1 communicating class}
+
+\textbf{2. 1 and 4 communicating class}
+
+\textbf{3. 4 and 2 communicating class}
+
+\textbf{4. 2 and 5 communicating class}
+\vspace{0.5cm}
+
+\textbf{Ans} 
+
+If i,j are states in Markov chain and i is accessible from j and j is accessible from i (written as    $i\leftrightarrow j$), then we say i and j communicate. A communication class C $\subseteq$ S is a set of states whose members communicate,i.e. i $\leftrightarrow$ j for all i, j belongs to C, and no state in C communicates with any state not in C.
+
+From the matrix we observe clearly that we can travel from 2 to 5 and vice versa. Its also true for 1 and 4. Thus {2,5} and {1,4} are communicating classes. 
+
+
+If the matrix is huge, we can solve this using Kosaraju's algorithm. It is implemented in Python.
+
+
+
+\end{document}
